@@ -8,10 +8,13 @@ import (
 	"github.com/k1ntoha/LaterBot/clients/telegram"
 )
 
-func main() {
-	token := mustToken()
+const (
+	host = "api.telegram.org"
+)
 
-	tgClient := telegram.New("host", token)
+func main() {
+
+	tgClient := telegram.New(host, mustToken())
 
 	//fetcher = fetcher.New()
 
