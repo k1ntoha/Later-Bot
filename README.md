@@ -1,4 +1,4 @@
-# ✈️ GoReadLater — Minimalist Reminder Bot
+# ✈️ LaterBot — Minimalist Reminder Bot
 
 ![Go Gopher Logo](/assets/logo.png)
 
