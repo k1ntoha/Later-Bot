@@ -19,7 +19,7 @@ const (
 func (p *Processor) doCmd(text string, chatID int, username string) error {
 	text = strings.TrimSpace(text)
 
-	log.Printf("New message %s , fro, %s", text, username)
+	log.Printf("New message %s , from %s", text, username)
 
 	if isAddCmd(text) {
 		return p.savePage(chatID, text, username)
@@ -36,7 +36,6 @@ func (p *Processor) doCmd(text string, chatID int, username string) error {
 		return p.tg.SendMessage(chatID, msgUnknownCommand)
 	}
 
-	return nil
 }
 
 func (p *Processor) sendRandom(chatId int, username string) (err error) {

@@ -17,7 +17,7 @@ type Storage struct {
 	basePath string
 }
 
-const defaultPerm = 0774
+const defaultPerm = 0775
 
 func New(basePath string) Storage {
 	return Storage{basePath: basePath}
@@ -27,6 +27,7 @@ func (s Storage) Save(page *storage.Page) (err error) {
 	defer func() { err = e.Wrap("Failed to save", err) }()
 
 	fPath := filepath.Join(s.basePath, page.UserName)
+	fmt.Printf("fPath: %v\n", fPath)
 	if err := os.MkdirAll(fPath, defaultPerm); err != nil {
 		return err
 	}
@@ -55,7 +56,7 @@ func (s Storage) PickRandom(userName string) (page *storage.Page, err error) {
 	defer func() { err = e.Wrap("Failed to PickRandom", err) }()
 
 	path := filepath.Join(s.basePath, userName)
-
+	//check user folder
 	files, err := os.ReadDir(path)
 	if err != nil {
 		return nil, err

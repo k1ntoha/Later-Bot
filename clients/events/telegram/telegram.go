@@ -62,7 +62,7 @@ func (p *Processor) processMessage(event events.Event) error {
 	if err := p.doCmd(event.Text, meta.ChatId, meta.Username); err != nil {
 		return e.Wrap("failed to handle message", err)
 	}
-	panic("unimplemented")
+	return nil
 }
 
 func meta(event events.Event) (Meta, error) {
